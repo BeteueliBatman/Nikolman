@@ -1,0 +1,485 @@
+{
+  "nav": {
+    "home": "Home",
+    "prefabStructures": "Prefab Structures",
+    "projects": "Projects",
+    "newsroom": "Newsroom",
+    "whoWeAre": "Who We Are",
+    "contactUs": "Contact Us",
+    "primaryNavigation": "Primary navigation",
+    "mobileNavigation": "Mobile navigation",
+    "toggleMenu": "Toggle menu"
+  },
+  "footer": {
+    "description": "Prefabricated concrete construction solutions built for durability, precision, and efficient delivery.",
+    "navigation": "Navigation",
+    "legal": "Links",
+    "privacyPolicy": "Privacy Policy",
+    "accountSignIn": "Account Sign-in",
+    "bookings": "Bookings",
+    "contact": "Contact",
+    "copyright": "All rights reserved.",
+    "tagline": "Prefab Concrete Excellence"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Nikolman Companies",
+      "motto": "Building the future",
+      "description": "High-quality prefabricated concrete systems for faster, cleaner, and more predictable construction.",
+      "primaryCta": "View projects",
+      "secondaryCta": "Request a quote"
+    },
+    "stats": {
+      "yearsValue": "12+",
+      "yearsLabel": "Years of expertise",
+      "projectsValue": "200+",
+      "projectsLabel": "Delivered projects",
+      "engineersValue": "250+",
+      "engineersLabel": "Employees",
+      "qualityValue": "100%",
+      "qualityLabel": "Factory quality control"
+    },
+    "sectionNav": {
+      "label": "Homepage sections",
+      "overview": "Overview",
+      "products": "Products",
+      "why": "Why Nikolman",
+      "planning": "Project planning"
+    },
+    "intro": {
+      "eyebrow": "Scope of work",
+      "title": "Industrialized construction with architectural discipline.",
+      "description": "Nikolman brings design, engineering, production, and installation into one coordinated process for residential, commercial, and institutional building programs."
+    },
+    "products": {
+      "eyebrow": "Products and services",
+      "title": "Precast and modular solutions",
+      "description": "The remade structure organizes Nikolman's core products into clear, scan-friendly service cards with direct paths to technical consultation.",
+      "explore": "View details",
+      "jumpLabel": "Product section links",
+      "precastStandard": {
+        "title": "Precast Standard Products",
+        "description": "Nikolman concrete prefabricated element facility offer a wide variety of quality precast concrete for use in the construction and utility markets within Georgia. Each of Nikolman's Standard Products are fabricated to Georgian construction quality requirements and full QC documentation is available."
+      },
+      "wallPanels": {
+        "title": "Precast Concrete Wall Panels",
+        "description": "Precast concrete structural system offers tremendous advantages and value for residential and commercial buildings. The use of PC structures makes an ideal framework for creating a design that offers fast construction and structural stability. A wide range of options are available for creating the perfect system to achieve the size and shape of building required."
+      },
+      "customStructures": {
+        "title": "Custom Concrete Precast Structures",
+        "description": "Architectural precast concrete panels currently offered by Nikolman include a variety of shapes and finishes are available. Various materials may be cast on the face of panels to supplement the colors and textures attainable with exposed aggregate finishes including natural stone and clay masonry, giving a unique precast exterior or interior finish."
+      },
+      "pilingDrainage": {
+        "title": "Piling and Foundation Drainage Systems",
+        "description": "Foundation drainage and hydroisolation systems help protect building structures from water exposure and support durable construction below and around the structural base."
+      },
+      "modularStructures": {
+        "title": "Modular Structures",
+        "description": "Factory-produced concrete modules and assemblies that reduce site work and support rapid delivery of repeatable building programs."
+      },
+      "singleFamily": {
+        "title": "Single Family Homes",
+        "description": "Durable prefabricated building systems for private houses, combining structural reliability with shorter construction timelines."
+      },
+      "townhouses": {
+        "title": "Townhouses",
+        "description": "Repeatable precast and modular assemblies for multi-unit residential blocks where speed, consistency, and cost control matter."
+      },
+      "officeBuildings": {
+        "title": "Office Buildings",
+        "description": "Concrete structural systems for offices and mixed-use workspaces, planned for efficient spans, services, and long-term adaptability."
+      },
+      "medicalFacilities": {
+        "title": "Medical Facilities",
+        "description": "Reliable precast solutions for clinics and healthcare facilities with careful attention to durability, access, and phased construction."
+      }
+    },
+    "why": {
+      "eyebrow": "Why Nikolman",
+      "title": "A controlled process from engineering to installation.",
+      "description": "Factory precision, disciplined planning, and coordinated site work help each project move with less uncertainty.",
+      "factoryPrecision": {
+        "title": "Factory precision",
+        "body": "Elements are produced in controlled conditions, improving dimensional accuracy and finish consistency."
+      },
+      "fasterConstruction": {
+        "title": "Faster construction",
+        "body": "Parallel factory production and site preparation shorten delivery schedules and reduce weather exposure."
+      },
+      "costEfficiency": {
+        "title": "Cost efficiency",
+        "body": "Standardized processes reduce waste, rework, and unpredictable labor time on site."
+      },
+      "fullCycle": {
+        "title": "Full-cycle coordination",
+        "body": "Design, production, transport, and installation are considered together from the earliest planning stages."
+      },
+      "cta": {
+        "badge": "Project planning",
+        "title": "Bring us your drawings, concept, or site challenge.",
+        "description": "Nikolman can help determine the right precast or modular approach for your project scope.",
+        "button": "Start a conversation"
+      }
+    }
+  },
+  "prefab": {
+    "hero": {
+      "eyebrow": "Prefab structures",
+      "title": "Concrete systems for repeatable quality and rapid assembly.",
+      "description": "Explore Nikolman's precast standard products, wall panels, custom structures, modular structures, and building applications."
+    },
+    "categories": {
+      "eyebrow": "Production categories",
+      "title": "Product families",
+      "description": "Each family is organized around the same goal: reliable concrete elements, manufactured with control and delivered ready for installation."
+    },
+    "standard": {
+      "title": "Precast Standard Products",
+      "subtitle": "Catalog production",
+      "description": "Standard products provide a dependable base for common structural and site requirements. They are suited to projects that need proven dimensions, repeatable quality, and fast procurement.",
+      "items": ["Beams and columns", "Slabs and stairs", "Foundational elements", "Utility and civil concrete parts"]
+    },
+    "wallPanels": {
+      "title": "Precast Wall Panels",
+      "subtitle": "Building envelope",
+      "description": "Wall panels support quick enclosure and consistent exterior or interior wall quality. They can be planned for openings, insulation needs, and coordinated site installation.",
+      "items": ["External wall panels", "Internal partition panels", "Openings for doors and windows", "Facade-ready concrete surfaces"]
+    },
+    "custom": {
+      "title": "Custom Structures",
+      "subtitle": "Engineered to project",
+      "description": "Custom structures are developed around specific project geometry, loading, and architectural requirements when standard elements are not enough.",
+      "items": ["Project-specific molds", "Special spans and openings", "Complex load conditions", "Architectural concrete components"]
+    },
+    "modular": {
+      "title": "Modular Structures",
+      "subtitle": "Repeatable assemblies",
+      "description": "Modular structures use factory-built concrete assemblies to reduce site work and support faster, more predictable project delivery.",
+      "items": ["Concrete modules", "Repeatable residential layouts", "Commercial and public modules", "Transport and installation planning"]
+    },
+    "includedElements": "Included elements",
+    "requestSpecs": "Request specifications",
+    "buildingTypes": {
+      "eyebrow": "Applications",
+      "title": "Built for different project types",
+      "description": "The same production discipline can be adapted to houses, townhouses, offices, and medical facilities.",
+      "singleFamily": {
+        "title": "Single Family Homes",
+        "description": "Prefabricated concrete systems for durable private homes with cleaner site logistics.",
+        "h1": "Fast shell assembly",
+        "h2": "Durable envelope",
+        "h3": "Predictable costs"
+      },
+      "townhouses": {
+        "title": "Townhouses",
+        "description": "Repeatable structural systems for row housing and compact residential communities.",
+        "h1": "Repeatable layouts",
+        "h2": "Shared-wall efficiency",
+        "h3": "Consistent quality"
+      },
+      "officeBuildings": {
+        "title": "Office Buildings",
+        "description": "Concrete components for flexible office plans and commercial building programs.",
+        "h1": "Efficient spans",
+        "h2": "Service coordination",
+        "h3": "Long-life structure"
+      },
+      "medicalFacilities": {
+        "title": "Medical Facilities",
+        "description": "Reliable precast systems for clinics, healthcare extensions, and public-use facilities.",
+        "h1": "Robust structure",
+        "h2": "Phased delivery",
+        "h3": "Clean circulation"
+      }
+    },
+    "cta": {
+      "title": "Need technical guidance for a prefab project?",
+      "description": "Share the drawings, target schedule, and site requirements with Nikolman's team.",
+      "button": "Contact us"
+    }
+  },
+  "projects": {
+    "hero": {
+      "eyebrow": "Completed projects",
+      "title": "A structured archive of Nikolman's built work.",
+      "description": "Completed and active project references organized by category, location, year, scope, and image-led case study cards."
+    },
+    "overview": {
+      "eyebrow": "Portfolio",
+      "title": "Projects that show the scale, precision, and repeatability of precast construction.",
+      "description": "The section is prepared for a growing archive of residential, commercial, industrial, and institutional work."
+    },
+    "categories": {
+      "all": "All projects",
+      "industrial": "Industrial",
+      "residential": "Residential",
+      "commercial": "Commercial",
+      "institutional": "Institutional"
+    },
+    "labels": {
+      "featured": "Featured project",
+      "status": "Status",
+      "location": "Location",
+      "year": "Year",
+      "scope": "Scope",
+      "metric": "Key figure",
+      "details": "Project details"
+    },
+    "items": {
+      "industrialPlant": {
+        "title": "Precast industrial production shell",
+        "description": "A factory shell planned around precast wall panels, structural concrete elements, and clean logistics for fast installation.",
+        "status": "Completed",
+        "location": "Georgia",
+        "scope": "Wall panels, columns, installation coordination"
+      },
+      "residentialBlock": {
+        "title": "Residential precast building system",
+        "description": "A repeatable housing structure using factory-made concrete elements to reduce on-site work and stabilize construction timing.",
+        "status": "Completed",
+        "location": "Georgia",
+        "scope": "Structural shell, stair elements, facade-ready panels"
+      },
+      "commercialFacade": {
+        "title": "Commercial wall panel package",
+        "description": "Architectural and structural concrete wall panels prepared for a clean commercial exterior and efficient enclosure sequence.",
+        "status": "Delivered",
+        "location": "Georgia",
+        "scope": "Precast panels, openings, transport planning"
+      },
+      "medicalExtension": {
+        "title": "Medical facility extension",
+        "description": "A phased institutional extension using precast components to maintain predictable site access and disciplined delivery.",
+        "status": "Completed",
+        "location": "Georgia",
+        "scope": "Structural components, phased installation, coordination"
+      }
+    },
+    "submit": {
+      "eyebrow": "Project archive",
+      "title": "Newly completed work can be added as the portfolio grows.",
+      "description": "Project photos, location, year, delivery status, technical scope, and a short case description are ready to sit inside the same visual system.",
+      "button": "Send project material"
+    }
+  },
+  "newsroom": {
+    "hero": {
+      "eyebrow": "Newsroom",
+      "title": "Welcome to the Nikolman newsroom.",
+      "description": "Project news, production milestones, company updates, and technical stories from Nikolman's concrete construction environment."
+    },
+    "nav": {
+      "label": "Newsroom sections",
+      "overview": "Overview",
+      "pressReleases": "Press releases",
+      "mediacenter": "Mediacenter",
+      "pressContacts": "Press contacts"
+    },
+    "intro": {
+      "eyebrow": "Latest stories",
+      "title": "Stories from production, projects, and the people behind the concrete.",
+      "description": "Use the newsroom filters to browse company updates, project news, press releases, and technical notes without leaving the Nikolman website."
+    },
+    "categories": {
+      "all": "All updates",
+      "projectNews": "Project news",
+      "companyNews": "Company news",
+      "innovation": "Innovation",
+      "pressRelease": "Press releases"
+    },
+    "companies": {
+      "all": "All companies",
+      "nikolmanGroup": "Nikolman Group",
+      "nikolmanConcrete": "Nikolman Concrete",
+      "nikolmanProjects": "Nikolman Projects"
+    },
+    "labels": {
+      "filter": "Filter",
+      "topics": "Topics",
+      "search": "Search",
+      "searchPlaceholder": "Search headlines and updates",
+      "clearFilters": "Clear filters",
+      "companies": "Company",
+      "categories": "Categories",
+      "year": "Year",
+      "allYears": "All years",
+      "featured": "Top story",
+      "results": "{count} results",
+      "published": "Published",
+      "readMore": "Read article",
+      "close": "Close article",
+      "loadMore": "Load more updates",
+      "noResults": "No newsroom entries match the selected filters."
+    },
+    "items": {
+      "projectArchiveLaunch": {
+        "title": "Nikolman prepares a dedicated completed projects archive",
+        "summary": "The portfolio structure brings project references, photos, scope information, and delivery notes into one clear section.",
+        "body": "The new project archive is designed for completed buildings, production milestones, and detailed case studies. Each entry can carry a hero image, category, location, year, project status, and technical scope, giving visitors a clearer view of Nikolman's construction capability."
+      },
+      "factoryQualityProcess": {
+        "title": "Factory-controlled production supports predictable project delivery",
+        "summary": "Controlled production conditions help improve dimensional accuracy, surface quality, and installation readiness.",
+        "body": "Nikolman's prefabricated concrete process is built around repeatable production, engineering-led detailing, and quality checks before delivery. This reduces uncertainty on site and helps project teams plan installation with greater confidence."
+      },
+      "teamGrowth": {
+        "title": "Nikolman expands its construction and production capacity",
+        "summary": "The company continues strengthening its team and delivery structure for larger precast and modular programs.",
+        "body": "With a growing employee base and a wider project portfolio, Nikolman is preparing for more complex industrial, residential, commercial, and institutional work. The focus remains on disciplined planning, durable concrete systems, and coordinated execution."
+      },
+      "precastDeliveryMilestone": {
+        "title": "Precast delivery milestone reached on active building program",
+        "summary": "A coordinated delivery sequence keeps structural elements moving from production to site with fewer delays.",
+        "body": "The milestone highlights the value of connecting production planning, transport logistics, and installation sequencing early in the project. This coordinated approach supports cleaner site work and a more reliable construction schedule."
+      },
+      "modularPlanningGuide": {
+        "title": "Planning modular concrete systems before the site opens",
+        "summary": "Early coordination of geometry, transport, and lifting strategy helps modular programs move with fewer interruptions.",
+        "body": "Nikolman's modular planning process connects engineering decisions with production and site logistics. When the project team aligns openings, connection points, delivery routes, and installation zones early, the construction sequence becomes more controlled and easier to scale."
+      },
+      "wallPanelProgram": {
+        "title": "Wall panel program prepared for a residential development",
+        "summary": "A repeatable wall panel package supports cleaner scheduling for a residential construction program.",
+        "body": "The wall panel program is structured around repeatable dimensions, planned openings, and coordinated delivery groups. This helps the site team close building sections faster while preserving the precision expected from factory-made concrete elements."
+      }
+    },
+    "mediacenter": {
+      "eyebrow": "Mediacenter",
+      "title": "Images, documents, and press material in one place.",
+      "description": "Browse production and project photography or download company documents and press packs. Filter the library by media type as the archive grows.",
+      "tabs": {
+        "all": "All",
+        "images": "Images",
+        "documents": "Documents"
+      },
+      "download": "Download",
+      "empty": "No media in this category yet.",
+      "items": {
+        "factoryFloor": { "title": "Precast factory floor" },
+        "panelDetail": { "title": "Wall panel surface detail" },
+        "installationSite": { "title": "On-site element installation" },
+        "completedFacade": { "title": "Completed precast facade" },
+        "companyProfile": { "title": "Nikolman company profile" },
+        "productCatalog": { "title": "Precast product catalogue" },
+        "pressKit": { "title": "Newsroom press kit" }
+      }
+    },
+    "pressContacts": {
+      "eyebrow": "Press contacts",
+      "title": "Talk to the Nikolman press team.",
+      "description": "For interviews, project information, imagery, or media partnerships, reach the team directly or send a media request through the contact form.",
+      "phoneLabel": "Call",
+      "writeLabel": "Send media request",
+      "items": {
+        "pressOffice": {
+          "role": "Press office",
+          "description": "Press releases, company statements, and project news for Nikolman's prefabricated concrete construction work."
+        },
+        "mediaPartnerships": {
+          "role": "Media & partnerships",
+          "description": "Image and document requests, interview scheduling, and collaboration on construction and production stories."
+        }
+      }
+    },
+    "subscribe": {
+      "eyebrow": "Stay updated",
+      "title": "Get Nikolman press releases in your inbox.",
+      "description": "Subscribe to receive new project news, production milestones, and company announcements as they are published.",
+      "placeholder": "your@email.com",
+      "button": "Subscribe",
+      "success": "Thanks — you are on the Nikolman newsroom list.",
+      "note": "No backend is connected yet. Hook this form up to your email service to start collecting subscribers."
+    },
+    "contact": {
+      "eyebrow": "Media and updates",
+      "title": "Share a milestone, project note, or company announcement.",
+      "description": "Newsroom entries can cover completed work, construction progress, technical innovation, production updates, and company news.",
+      "button": "Contact Nikolman"
+    }
+  },
+  "whoWeAre": {
+    "hero": {
+      "eyebrow": "Who we are",
+      "title": "A construction partner focused on precision concrete.",
+      "description": "Nikolman develops prefabricated concrete solutions that help projects become more predictable, durable, and efficient."
+    },
+    "story": {
+      "eyebrow": "Company profile",
+      "title": "Nikolman combines engineering focus with production discipline.",
+      "p1": "Nikolman works in prefabricated concrete construction, producing elements and structures that are designed for efficient assembly and long service life.",
+      "p2": "The company supports projects through coordinated thinking: from concept and technical planning to factory production, delivery, and installation.",
+      "p3": "Its core offer covers precast standard products, wall panels, custom concrete structures, modular structures, and building systems for residential, office, and medical facilities."
+    },
+    "mission": {
+      "label": "Mission",
+      "text": "To make concrete construction faster, cleaner, and more reliable through factory-made precision and responsible project coordination."
+    },
+    "vision": {
+      "label": "Vision",
+      "text": "To become a trusted regional partner for prefabricated concrete buildings and modular construction systems."
+    },
+    "values": {
+      "eyebrow": "Values",
+      "title": "The principles behind the work",
+      "precision": {
+        "title": "Precision",
+        "description": "Accurate production and installation details support reliable results on site."
+      },
+      "reliability": {
+        "title": "Reliability",
+        "description": "Durable materials and controlled processes help buildings perform over time."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Modern prefab methods create new opportunities for speed and quality."
+      },
+      "partnership": {
+        "title": "Partnership",
+        "description": "Clear coordination with clients, designers, and contractors keeps projects moving."
+      }
+    },
+    "quality": {
+      "eyebrow": "Quality",
+      "title": "Controlled production, disciplined delivery.",
+      "description": "Nikolman's work is shaped by careful material selection, repeatable factory processes, and practical construction planning.",
+      "standards": ["Factory-controlled production", "Engineering-led detailing", "Coordinated transport and installation", "Project-specific technical consultation"]
+    }
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Start your prefab concrete project with Nikolman.",
+      "description": "Send your project request, technical question, or meeting proposal to the Nikolman team."
+    },
+    "directContact": "Direct contact",
+    "phone": "Phone",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "preferToTalk": "Prefer to talk?",
+    "workingHours": "Contact the team for project availability and consultation scheduling.",
+    "sendMessage": "Send a message",
+    "form": {
+      "fullName": "Full name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "phone": "Phone",
+      "inquiryType": "Inquiry type",
+      "selectTopic": "Select topic",
+      "standardProducts": "Precast Standard Products",
+      "wallPanels": "Precast Wall Panels",
+      "customStructures": "Custom Structures",
+      "modularStructures": "Modular Structures",
+      "residentialProject": "Residential Project",
+      "commercialProject": "Commercial Project",
+      "medicalFacility": "Medical Facility",
+      "generalInquiry": "General Inquiry",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about the site, schedule, drawings, or product requirements.",
+      "sendButton": "Send message"
+    },
+    "success": {
+      "title": "Thank you, {name}.",
+      "message": "Your message is ready for Nikolman's team. Connect the form to your preferred backend or CRM to complete submission."
+    }
+  }
+}
