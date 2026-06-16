@@ -2,6 +2,7 @@
 
 import type { CSSProperties, KeyboardEvent } from "react";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 type ProductGalleryProps = {
   images: string[];
@@ -18,6 +19,7 @@ export function ProductGallery({
   label,
   variant = "supporting",
 }: ProductGalleryProps) {
+  const t = useTranslations("gallery");
   const galleryImages = images.length > 0 ? images : [];
   const [activeIndex, setActiveIndex] = useState(0);
   const activeImage = galleryImages[activeIndex] ?? "";
@@ -69,7 +71,7 @@ export function ProductGallery({
             <button
               className="product-gallery__arrow product-gallery__arrow--prev"
               type="button"
-              aria-label="Previous image"
+              aria-label={t("previousImage")}
               onClick={showPrevious}
             >
               <span aria-hidden="true">‹</span>
@@ -77,7 +79,7 @@ export function ProductGallery({
             <button
               className="product-gallery__arrow product-gallery__arrow--next"
               type="button"
-              aria-label="Next image"
+              aria-label={t("nextImage")}
               onClick={showNext}
             >
               <span aria-hidden="true">›</span>
@@ -87,7 +89,7 @@ export function ProductGallery({
       </div>
 
       {hasMultipleImages ? (
-        <div className="product-gallery__thumbs" aria-label="Gallery images">
+        <div className="product-gallery__thumbs" aria-label={t("thumbnails")}>
           {galleryImages.map((image, index) => (
             <button
               className={`product-gallery__thumb${
@@ -95,7 +97,7 @@ export function ProductGallery({
               }`}
               key={`${image}-${index}`}
               type="button"
-              aria-label={`View image ${index + 1}`}
+              aria-label={t("viewImage", { index: index + 1 })}
               aria-current={index === activeIndex ? "true" : undefined}
               onClick={() => setActiveIndex(index)}
               style={imageStyle(image)}

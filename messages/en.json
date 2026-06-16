@@ -1,4 +1,20 @@
 {
+  "meta": {
+    "title": "Nikolman | BUILDING THE FUTURE",
+    "description": "Nikolman manufactures high-quality prefabricated concrete structures, from wall panels to complete building systems."
+  },
+  "common": {
+    "brandHome": "Nikolman home",
+    "languageSelector": "Language selector",
+    "statsAriaLabel": "Nikolman highlights",
+    "logoAriaLabel": "Nikolman logo"
+  },
+  "gallery": {
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "thumbnails": "Gallery images",
+    "viewImage": "View image {index}"
+  },
   "nav": {
     "home": "Home",
     "prefabStructures": "Prefab Structures",
@@ -24,7 +40,7 @@
   "home": {
     "hero": {
       "eyebrow": "Nikolman Companies",
-      "motto": "Building the future",
+      "motto": "BUILDING THE FUTURE",
       "description": "High-quality prefabricated concrete systems for faster, cleaner, and more predictable construction.",
       "primaryCta": "View projects",
       "secondaryCta": "Request a quote"
@@ -217,13 +233,15 @@
       "institutional": "Institutional"
     },
     "labels": {
+      "categories": "Project categories",
       "featured": "Featured project",
       "status": "Status",
       "location": "Location",
       "year": "Year",
       "scope": "Scope",
       "metric": "Key figure",
-      "details": "Project details"
+      "details": "Project details",
+      "noResults": "No projects match the selected category."
     },
     "items": {
       "industrialPlant": {

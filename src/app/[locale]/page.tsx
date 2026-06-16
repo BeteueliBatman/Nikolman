@@ -16,6 +16,7 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("home");
+  const common = await getTranslations("common");
 
   const stats = [
     { value: t("stats.yearsValue"), label: t("stats.yearsLabel") },
@@ -67,6 +68,7 @@ export default async function HomePage({
           <source src="/media/nikolman-hero.mp4" type="video/mp4" />
         </video>
         <div className="hero__shade" aria-hidden="true" />
+        <div className="hero__accent" aria-hidden="true" />
         <div className="hero__content">
           <div className="hero__copy">
             <span className="eyebrow">{t("hero.eyebrow")}</span>
@@ -84,7 +86,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="stats-strip" aria-label="Nikolman highlights">
+      <section className="stats-strip" aria-label={common("statsAriaLabel")}>
         <div className="stats-strip__grid">
           {stats.map((stat) => (
             <div className="stat" key={stat.label}>
@@ -106,7 +108,7 @@ export default async function HomePage({
           <div
             className="image-panel image-panel--logo"
             role="img"
-            aria-label="Nikolman logo"
+            aria-label={common("logoAriaLabel")}
             style={panelImageStyle("/media/brand/nikolman-overview-logo.png")}
           />
         </div>

@@ -9,11 +9,19 @@ type Locale = "en" | "ka";
 
 export default function Navbar() {
   const t = useTranslations("nav");
+  const common = useTranslations("common");
   const locale = useLocale() as Locale;
   const pathname = usePathname();
   const router = useRouter();
   const [isSolid, setIsSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   useEffect(() => {
     const updateHeader = () => setIsSolid(window.scrollY > 18);
@@ -30,7 +38,7 @@ export default function Navbar() {
   return (
     <header className={`site-header ${isSolid || menuOpen ? "is-solid" : ""}`}>
       <div className="site-header__bar">
-        <Link href="/" className="brand" aria-label="Nikolman home">
+        <Link href="/" className="brand" aria-label={common("brandHome")}>
           <span className="brand__mark" aria-hidden="true" />
           <span className="brand__text">Nikolman</span>
         </Link>
@@ -50,7 +58,7 @@ export default function Navbar() {
         </nav>
 
         <div className="header-actions">
-          <div className="language-switcher" aria-label="Language selector">
+          <div className="language-switcher" aria-label={common("languageSelector")}>
             <button
               className={`language-switcher__option ${
                 locale === "en" ? "is-active" : ""

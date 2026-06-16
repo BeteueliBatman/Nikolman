@@ -1,0 +1,112 @@
+# Nikolman Website - Cursor Rules
+
+## Project Summary
+This is a premium corporate remake of the Nikolman website, inspired by the structured, polished visual language of Strabag SE while preserving Nikolman's own red/black/white identity. The site is a Next.js app with Georgian and English localization, built as a frontend-first marketing and company presentation website. It currently uses static content and local image assets, with future plans for backend-driven projects, newsroom articles, contact handling, and admin publishing.
+
+## Tech Stack
+- Framework: Next.js App Router
+- Language: TypeScript + React
+- Styling: global CSS in `src/app/globals.css`
+- Localization: `next-intl`
+- Locales: `en` and `ka`
+- Content source: `src/lib/siteContent.ts`
+- Translation files: `messages/en.json` and `messages/ka.json`
+- Public assets: `public/media/**`
+
+## Key Files
+- `src/app/[locale]/page.tsx`: homepage
+- `src/app/[locale]/projects/page.tsx`: projects page
+- `src/app/[locale]/newsroom/page.tsx`: newsroom page
+- `src/app/[locale]/prefab-structures/page.tsx`: prefab/product page
+- `src/app/[locale]/who-we-are/page.tsx`: company page
+- `src/app/[locale]/contact/page.tsx`: contact page
+- `src/components/Navbar.tsx`: sticky responsive navigation and language switcher
+- `src/components/Footer.tsx`: footer
+- `src/components/ProductGallery.tsx`: product image carousel
+- `src/components/NewsroomBoard.tsx`: newsroom listing/search UI
+- `src/components/MediaCenter.tsx`: newsroom media center
+- `src/lib/siteContent.ts`: nav links, products, projects, newsroom items, media items, press contacts
+
+## Product Direction
+- Keep the site feeling premium, corporate, spacious, precise, and construction-industry appropriate.
+- Use Strabag-like clarity: strong hierarchy, bold typography, clean sections, red accents, dark corporate bands, disciplined grids.
+- Do not turn the site into a generic landing page. It should feel like a serious construction/manufacturing company website.
+- Preserve Nikolman's brand identity: red, black, white, concrete imagery, engineering tone, and bilingual Georgian/English support.
+
+## Localization Rules
+- Every user-facing text must exist in both `messages/en.json` and `messages/ka.json`.
+- Do not hardcode visible English or Georgian strings directly in page components unless it is a brand name or non-translatable asset label.
+- When adding a new page/section/component with visible text, add translation keys for both languages.
+- Georgian typography needs extra care. Avoid tight letter spacing. Keep Georgian headings readable and prevent text collisions.
+- Always check long Georgian strings for wrapping, especially nav items, hero titles, cards, buttons, and newsroom/project titles.
+
+## Content Rules
+- Prefer real Nikolman content and extracted image assets over placeholders.
+- Product/project/newsroom structured data belongs in `src/lib/siteContent.ts`.
+- Article/project text belongs in `messages/en.json` and `messages/ka.json`.
+- Images should be stored under `public/media/...` and referenced with absolute public paths like `/media/products/example.jpg`.
+- Keep TODO comments only for genuinely future media/backend replacement points.
+
+## UI/UX Rules
+- Use semantic HTML sections, articles, navs, headings, and buttons.
+- Keep layouts responsive across desktop, tablet, and mobile.
+- Use CSS Grid/Flexbox; stay consistent with the existing CSS style.
+- Cards should look polished but not overly rounded. Keep radii minimal unless an existing pattern says otherwise.
+- Use shadows carefully to improve depth and quality, not to make the UI noisy.
+- Avoid decorative gradient blobs, random shapes, and generic SaaS styling.
+- Keep navigation clean, sticky, responsive, and usable.
+- Mobile menu should remain visually distinctive and polished.
+- Product galleries should keep arrow controls and thumbnails usable without layout shift.
+- Newsroom should keep topic tabs, search, article grid, featured article, media center, and press contact structure.
+
+## Styling Rules
+- Global styles live in `src/app/globals.css`.
+- Reuse existing CSS variables from `:root`.
+- Avoid introducing Tailwind or another styling framework.
+- Avoid inline styles except for CSS custom properties used for dynamic background images.
+- Do not use viewport-width font scaling. Use responsive breakpoints instead.
+- Do not add nested cards inside cards.
+- Keep text inside buttons/cards from overflowing on small screens.
+
+## Code Rules
+- Follow existing component patterns before creating new abstractions.
+- Keep changes scoped and avoid unrelated refactors.
+- Prefer server components for static pages and client components only for interactive UI.
+- Use TypeScript types for component props.
+- Do not remove existing content, assets, or translations unless explicitly requested.
+- Do not revert user-made changes.
+- Before changing visual systems, inspect nearby CSS and component patterns.
+
+## Backend Future Direction
+- Current project is frontend/static.
+- Future backend/admin should support:
+  - authenticated admin panel
+  - project upload/edit/delete
+  - newsroom article upload/edit/delete
+  - image storage
+  - draft/published states
+  - Georgian and English article/project versions
+  - contact form submission routing
+- Good future stack direction: Next.js + Postgres/Supabase + Storage + custom admin panel.
+- Until backend exists, keep static data editable through `siteContent.ts` and translations.
+
+## Verification
+- Run `npm run typecheck` after TypeScript/content changes.
+- Run `npm run build` before deployment or major handoff.
+- For visual changes, check both `/ka` and `/en`.
+- Check mobile responsive behavior when editing nav, hero, product cards, galleries, newsroom, projects, and contact forms.
+
+## Deployment
+- GitHub repository: `https://github.com/BeteueliBatman/Nikolman.git`
+- Hosting: Vercel
+- Main branch: `main`
+- Build command: default Next.js / `npm run build`
+- Do not commit `.next`, `node_modules`, `.tools`, `.env`, or build cache files.
+
+## Cursor Behavior
+- Be conservative and project-aware.
+- Ask before making broad visual redesigns.
+- Prefer modifying existing files and patterns over inventing new architecture.
+- When implementing requested changes, update all affected locales and responsive states.
+- Explain important tradeoffs briefly.
+- Keep final summaries concise and include changed files plus verification commands.

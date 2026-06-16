@@ -1,14 +1,11 @@
 import type { CSSProperties } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import ProjectsBoard from "@/components/ProjectsBoard";
 import { projectCategoryKeys, projectItems } from "@/lib/siteContent";
 
 function pageHeroStyle(image: string): CSSProperties {
   return { "--page-image": `url(${image})` } as CSSProperties;
-}
-
-function projectImageStyle(image: string): CSSProperties {
-  return { "--project-image": `url(${image})` } as CSSProperties;
 }
 
 export default async function ProjectsPage({
@@ -35,11 +32,6 @@ export default async function ProjectsPage({
     scope: t(`items.${project.key}.scope`),
   }));
 
-  const featuredProject = projects.find((project) => project.featured) ?? projects[0];
-  const regularProjects = projects.filter(
-    (project) => project.key !== featuredProject.key
-  );
-
   return (
     <>
       <section
@@ -56,103 +48,25 @@ export default async function ProjectsPage({
 
       <section className="section">
         <div className="section-inner">
-          <div className="portfolio-heading">
-            <div className="section-header section-header--wide">
-              <span className="eyebrow">{t("overview.eyebrow")}</span>
-              <h2 className="section-title">{t("overview.title")}</h2>
-              <p className="section-lead">{t("overview.description")}</p>
-            </div>
-
-            <div className="project-category-row" aria-label="Project categories">
-              {categories.map((category) => (
-                <span
-                  className={`project-category ${
-                    category.key === "all" ? "is-active" : ""
-                  }`}
-                  key={category.key}
-                >
-                  {category.label}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {featuredProject && (
-            <article className="project-feature">
-              <div
-                className="project-feature__media"
-                style={projectImageStyle(featuredProject.image)}
-              >
-                {/* TODO: Upload this project image to public/media/projects and keep the path in projectItems. */}
-              </div>
-              <div className="project-feature__content">
-                <span className="project-pill">{t("labels.featured")}</span>
-                <h3>{featuredProject.title}</h3>
-                <p>{featuredProject.description}</p>
-
-                <dl className="project-meta project-meta--feature">
-                  <div>
-                    <dt>{t("labels.status")}</dt>
-                    <dd>{featuredProject.status}</dd>
-                  </div>
-                  <div>
-                    <dt>{t("labels.location")}</dt>
-                    <dd>{featuredProject.location}</dd>
-                  </div>
-                  <div>
-                    <dt>{t("labels.year")}</dt>
-                    <dd>{featuredProject.year}</dd>
-                  </div>
-                  <div>
-                    <dt>{t("labels.metric")}</dt>
-                    <dd>{featuredProject.metric}</dd>
-                  </div>
-                </dl>
-
-                <div className="project-scope">
-                  <span>{t("labels.scope")}</span>
-                  <strong>{featuredProject.scope}</strong>
-                </div>
-              </div>
-            </article>
-          )}
-
-          <div className="project-grid">
-            {regularProjects.map((project) => (
-              <article className="project-card" key={project.key}>
-                <div
-                  className="project-card__media"
-                  style={projectImageStyle(project.image)}
-                >
-                  {/* TODO: Upload this project image to public/media/projects and keep the path in projectItems. */}
-                </div>
-                <div className="project-card__body">
-                  <div className="project-card__topline">
-                    <span>{project.category}</span>
-                    <span>{project.year}</span>
-                  </div>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-
-                  <dl className="project-meta">
-                    <div>
-                      <dt>{t("labels.status")}</dt>
-                      <dd>{project.status}</dd>
-                    </div>
-                    <div>
-                      <dt>{t("labels.location")}</dt>
-                      <dd>{project.location}</dd>
-                    </div>
-                  </dl>
-
-                  <div className="project-card__scope">
-                    <span>{t("labels.scope")}</span>
-                    <strong>{project.scope}</strong>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+          <ProjectsBoard
+            projects={projects}
+            categories={categories}
+            overview={{
+              eyebrow: t("overview.eyebrow"),
+              title: t("overview.title"),
+              description: t("overview.description"),
+            }}
+            labels={{
+              categories: t("labels.categories"),
+              featured: t("labels.featured"),
+              status: t("labels.status"),
+              location: t("labels.location"),
+              year: t("labels.year"),
+              scope: t("labels.scope"),
+              metric: t("labels.metric"),
+              noResults: t("labels.noResults"),
+            }}
+          />
         </div>
       </section>
 
