@@ -1,12 +1,13 @@
 import type { CSSProperties } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import NewsroomBoard from "@/components/NewsroomBoard";
 import MediaCenter from "@/components/MediaCenter";
 import NewsroomSubscribe from "@/components/NewsroomSubscribe";
-import { Link } from "@/i18n/navigation";
+import { getArticles } from "@/lib/data/articles";
+import { isAppLocale } from "@/lib/data/locale";
 import {
   newsroomCategoryKeys,
-  newsroomItems,
   newsroomMediaItems,
   newsroomMediaTypeKeys,
   newsroomPressContacts,
@@ -32,20 +33,20 @@ export default async function NewsroomPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("newsroom");
+  const appLocale = isAppLocale(locale) ? locale : "en";
 
   const categories = newsroomCategoryKeys.map((key) => ({
     key,
     label: t(`categories.${key}`),
   }));
 
-  const articles = newsroomItems.map((article) => ({
+  const articleRows = await getArticles(appLocale);
+
+  const articles = articleRows.map((article) => ({
     ...article,
     category: t(`categories.${article.categoryKey}`),
     company: t(`companies.${article.companyKey}`),
     displayDate: formatNewsDate(article.date, locale),
-    title: t(`items.${article.key}.title`),
-    summary: t(`items.${article.key}.summary`),
-    body: t(`items.${article.key}.body`),
   }));
 
   const mediaItems = newsroomMediaItems.map((item) => ({
@@ -173,6 +174,7 @@ export default async function NewsroomPage({
 
       <section className="newsroom-subscribe">
         <NewsroomSubscribe
+          locale={appLocale}
           labels={{
             eyebrow: t("subscribe.eyebrow"),
             title: t("subscribe.title"),
@@ -181,6 +183,8 @@ export default async function NewsroomPage({
             button: t("subscribe.button"),
             success: t("subscribe.success"),
             note: t("subscribe.note"),
+            error: t("subscribe.error"),
+            submitting: t("subscribe.submitting"),
           }}
         />
       </section>

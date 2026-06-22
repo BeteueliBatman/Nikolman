@@ -6,12 +6,6 @@ export const navLinks = [
   { href: "/contact" as const, labelKey: "contactUs" },
 ];
 
-export const legalLinks = [
-  { href: "/privacy-policy", labelKey: "privacyPolicy" },
-  { href: "/account/sign-in", labelKey: "accountSignIn" },
-  { href: "/bookings", labelKey: "bookings" },
-];
-
 export const productCatalog = [
   {
     key: "precastStandard",
@@ -44,7 +38,7 @@ export const productCatalog = [
     image: "/media/products/custom-structures.jpg",
     gallery: [
       "/media/products/custom-structures.jpg",
-      "/media/original-nikolman-all/19-20210628_140109234.jpeg",
+      "/media/original-nikolman-all/24-Photo_6553880_DJI_280_jpg_3967904_0_2021102310.jpg",
       "/media/original-nikolman-all/23-precast_structure_3_76dea4e4fd430171894633b0a.jpeg",
     ],
     categoryKey: "engineering",

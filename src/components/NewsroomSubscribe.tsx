@@ -4,6 +4,7 @@ import type { FormEvent } from "react";
 import { useState } from "react";
 
 type NewsroomSubscribeProps = {
+  locale: string;
   labels: {
     eyebrow: string;
     title: string;
@@ -12,17 +13,49 @@ type NewsroomSubscribeProps = {
     button: string;
     success: string;
     note: string;
+    error: string;
+    submitting: string;
   };
 };
 
-export default function NewsroomSubscribe({ labels }: NewsroomSubscribeProps) {
+export default function NewsroomSubscribe({
+  locale,
+  labels,
+}: NewsroomSubscribeProps) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    // TODO: Connect this to a real email service or newsletter backend.
-    setSubmitted(true);
+    setSubmitting(true);
+    setError(null);
+
+    const formData = new FormData(event.currentTarget);
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          locale,
+          _hp: formData.get("_hp"),
+        }),
+      });
+
+      if (!response.ok) {
+        setError(labels.error);
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError(labels.error);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -49,10 +82,28 @@ export default function NewsroomSubscribe({ labels }: NewsroomSubscribeProps) {
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               placeholder={labels.placeholder}
+              disabled={submitting}
             />
-            <button className="button button--primary" type="submit">
-              {labels.button}
+            <input
+              className="newsroom-visually-hidden"
+              type="text"
+              name="_hp"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
+            <button
+              className="button button--primary"
+              type="submit"
+              disabled={submitting}
+            >
+              {submitting ? labels.submitting : labels.button}
             </button>
+            {error ? (
+              <p className="newsroom-subscribe__error" role="alert">
+                {error}
+              </p>
+            ) : null}
           </form>
         )}
         <p className="newsroom-subscribe__note">{labels.note}</p>

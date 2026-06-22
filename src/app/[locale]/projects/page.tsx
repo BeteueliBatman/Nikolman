@@ -2,7 +2,9 @@ import type { CSSProperties } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import ProjectsBoard from "@/components/ProjectsBoard";
-import { projectCategoryKeys, projectItems } from "@/lib/siteContent";
+import { getProjects } from "@/lib/data/projects";
+import { isAppLocale } from "@/lib/data/locale";
+import { projectCategoryKeys } from "@/lib/siteContent";
 
 function pageHeroStyle(image: string): CSSProperties {
   return { "--page-image": `url(${image})` } as CSSProperties;
@@ -16,20 +18,18 @@ export default async function ProjectsPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("projects");
+  const appLocale = isAppLocale(locale) ? locale : "en";
 
   const categories = projectCategoryKeys.map((key) => ({
     key,
     label: t(`categories.${key}`),
   }));
 
-  const projects = projectItems.map((project) => ({
+  const projectRows = await getProjects(appLocale);
+
+  const projects = projectRows.map((project) => ({
     ...project,
     category: t(`categories.${project.categoryKey}`),
-    title: t(`items.${project.key}.title`),
-    description: t(`items.${project.key}.description`),
-    status: t(`items.${project.key}.status`),
-    location: t(`items.${project.key}.location`),
-    scope: t(`items.${project.key}.scope`),
   }));
 
   return (

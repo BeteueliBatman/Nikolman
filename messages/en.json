@@ -29,10 +29,6 @@
   "footer": {
     "description": "Prefabricated concrete construction solutions built for durability, precision, and efficient delivery.",
     "navigation": "Navigation",
-    "legal": "Links",
-    "privacyPolicy": "Privacy Policy",
-    "accountSignIn": "Account Sign-in",
-    "bookings": "Bookings",
     "contact": "Contact",
     "copyright": "All rights reserved.",
     "tagline": "Prefab Concrete Excellence"
@@ -406,7 +402,9 @@
       "placeholder": "your@email.com",
       "button": "Subscribe",
       "success": "Thanks — you are on the Nikolman newsroom list.",
-      "note": "No backend is connected yet. Hook this form up to your email service to start collecting subscribers."
+      "error": "We could not save your subscription right now. Please try again later.",
+      "submitting": "Subscribing...",
+      "note": "We only use your email for Nikolman newsroom updates."
     },
     "contact": {
       "eyebrow": "Media and updates",
@@ -493,11 +491,16 @@
       "generalInquiry": "General Inquiry",
       "message": "Message",
       "messagePlaceholder": "Tell us about the site, schedule, drawings, or product requirements.",
-      "sendButton": "Send message"
+      "sendButton": "Send message",
+      "sending": "Sending..."
+    },
+    "errors": {
+      "generic": "We could not send your message right now. Please try again or call us directly.",
+      "rateLimited": "Too many messages were sent recently. Please wait a while or contact us by phone."
     },
     "success": {
       "title": "Thank you, {name}.",
-      "message": "Your message is ready for Nikolman's team. Connect the form to your preferred backend or CRM to complete submission."
+      "message": "Your message has been received. The Nikolman team will get back to you as soon as possible."
     }
   }
 }

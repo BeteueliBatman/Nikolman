@@ -1,0 +1,12 @@
+node_modules
+.next
+.tools
+.git
+*.log
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+supabase/seed-generated.sql
+supabase/seed-projects-only.sql
+supabase/seed-articles-only.sql

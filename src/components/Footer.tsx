@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { contactDetails, legalLinks, navLinks } from "@/lib/siteContent";
+import { contactDetails, navLinks } from "@/lib/siteContent";
 
 export default async function Footer() {
   const t = await getTranslations("footer");
@@ -25,17 +25,6 @@ export default async function Footer() {
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link href={link.href}>{nav(link.labelKey)}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="site-footer__column">
-          <h2>{t("legal")}</h2>
-          <ul>
-            {legalLinks.map((link) => (
-              <li key={link.href}>
-                <a href={link.href}>{t(link.labelKey)}</a>
               </li>
             ))}
           </ul>

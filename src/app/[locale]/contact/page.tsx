@@ -2,7 +2,7 @@
 
 import type { ChangeEvent, CSSProperties, FormEvent } from "react";
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { contactDetails } from "@/lib/siteContent";
 
 function pageHeroStyle(image: string): CSSProperties {
@@ -11,7 +11,10 @@ function pageHeroStyle(image: string): CSSProperties {
 
 export default function ContactPage() {
   const t = useTranslations("contact");
+  const locale = useLocale();
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -32,9 +35,40 @@ export default function ContactPage() {
     }));
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError(null);
+
+    const formData = new FormData(event.currentTarget);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...form,
+          locale,
+          _hp: formData.get("_hp"),
+        }),
+      });
+
+      if (response.status === 429) {
+        setError(t("errors.rateLimited"));
+        return;
+      }
+
+      if (!response.ok) {
+        setError(t("errors.generic"));
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError(t("errors.generic"));
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -76,7 +110,7 @@ export default function ContactPage() {
 
             <div className="call-panel">
               <span>{t("preferToTalk")}</span>
-              <a href="tel:+995599446464">+995 599 446464</a>
+              <a href="tel:+995599446464">+995 599 44 64 64</a>
               <p>{t("workingHours")}</p>
             </div>
           </aside>
@@ -108,6 +142,7 @@ export default function ContactPage() {
                       value={form.name}
                       onChange={handleChange}
                       placeholder={t("form.namePlaceholder")}
+                      disabled={submitting}
                     />
                   </div>
 
@@ -121,6 +156,7 @@ export default function ContactPage() {
                       value={form.email}
                       onChange={handleChange}
                       placeholder="john@example.com"
+                      disabled={submitting}
                     />
                   </div>
                 </div>
@@ -135,6 +171,7 @@ export default function ContactPage() {
                       value={form.phone}
                       onChange={handleChange}
                       placeholder="+995 5xx xxx xxx"
+                      disabled={submitting}
                     />
                   </div>
 
@@ -145,6 +182,7 @@ export default function ContactPage() {
                       name="subject"
                       value={form.subject}
                       onChange={handleChange}
+                      disabled={submitting}
                     >
                       <option value="">{t("form.selectTopic")}</option>
                       <option>{t("form.standardProducts")}</option>
@@ -168,11 +206,31 @@ export default function ContactPage() {
                     value={form.message}
                     onChange={handleChange}
                     placeholder={t("form.messagePlaceholder")}
+                    disabled={submitting}
                   />
                 </div>
 
-                <button className="button button--primary" type="submit">
-                  {t("form.sendButton")}
+                <input
+                  className="newsroom-visually-hidden"
+                  type="text"
+                  name="_hp"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+
+                {error ? (
+                  <p className="contact-form__error" role="alert">
+                    {error}
+                  </p>
+                ) : null}
+
+                <button
+                  className="button button--primary"
+                  type="submit"
+                  disabled={submitting}
+                >
+                  {submitting ? t("form.sending") : t("form.sendButton")}
                 </button>
               </form>
             )}
