@@ -1,8 +1,12 @@
 import { createServerClient, type SetAllCookies } from "@supabase/ssr";
 import { cookies } from "next/headers";
-import { getSupabasePublicEnv } from "@/lib/env";
+import { getSupabasePublicEnv, isSupabaseConfigured } from "@/lib/env";
 
 export async function createAuthServerClient() {
+  if (!isSupabaseConfigured()) {
+    throw new Error("supabase_not_configured");
+  }
+
   const cookieStore = await cookies();
   const { url, anonKey } = getSupabasePublicEnv();
 

@@ -20,6 +20,13 @@ export default function AdminLoginForm() {
         </p>
       ) : null}
 
+      {errorCode === "backend_unavailable" ? (
+        <p className="admin-login__alert" role="alert">
+          Website backend is not configured. Add Supabase environment variables
+          and restart the app.
+        </p>
+      ) : null}
+
       {state?.error ? (
         <p className="admin-login__alert" role="alert">
           {state.error}

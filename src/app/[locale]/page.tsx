@@ -64,8 +64,7 @@ export default async function HomePage({
           playsInline
           aria-hidden="true"
         >
-          {/* TODO: Replace this placeholder source with the final Nikolman hero video URL. */}
-          <source src="/media/nikolman-hero.mp4" type="video/mp4" />
+          <source src="/media/hero/nikolman-hero.mp4" type="video/mp4" />
         </video>
         <div className="hero__shade" aria-hidden="true" />
         <div className="hero__accent" aria-hidden="true" />

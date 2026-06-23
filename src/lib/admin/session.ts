@@ -1,11 +1,13 @@
-import { createAuthServerClient } from "@/lib/supabase/server-auth";
+import { isAdminRole } from "@/lib/admin/roles";
 import type { AdminProfile } from "@/lib/admin/require-admin";
-
-function isAdminRole(value: unknown): value is AdminProfile["role"] {
-  return value === "admin" || value === "editor";
-}
+import { isSupabaseConfigured } from "@/lib/env";
+import { createAuthServerClient } from "@/lib/supabase/server-auth";
 
 export async function getAdminSession() {
+  if (!isSupabaseConfigured()) {
+    return null;
+  }
+
   const supabase = await createAuthServerClient();
 
   const {

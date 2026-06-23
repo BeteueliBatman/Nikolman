@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AdminArticlesNav from "@/components/admin/AdminArticlesNav";
 import AdminDeleteButton from "@/components/admin/AdminDeleteButton";
 import AdminStatusBadge from "@/components/admin/AdminStatusBadge";
 import { deleteArticle, getAdminArticles } from "@/lib/admin/articles";
@@ -18,6 +19,8 @@ export default async function AdminArticlesPage() {
 
   return (
     <section className="admin-page">
+      <AdminArticlesNav active="articles" />
+
       <div className="admin-page__header admin-page__header--split">
         <div>
           <span className="eyebrow">Content</span>

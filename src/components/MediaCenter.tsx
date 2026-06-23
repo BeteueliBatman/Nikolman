@@ -1,14 +1,17 @@
 "use client";
 
-import type { CSSProperties } from "react";
 import { useState } from "react";
+import {
+  isPublicFileUrl,
+  normalizePublicFileUrl,
+} from "@/lib/media/urls";
 
 type MediaType = "image" | "document";
 
 type MediaItem = {
-  key: string;
+  id: string;
   type: MediaType;
-  image?: string;
+  fileUrl: string;
   meta: string;
   title: string;
 };
@@ -26,8 +29,16 @@ type MediaCenterProps = {
   emptyLabel: string;
 };
 
-function assetImageStyle(image: string): CSSProperties {
-  return { "--news-image": `url(${image})` } as CSSProperties;
+function safeFileUrl(url: string): string | null {
+  if (!isPublicFileUrl(url)) {
+    return null;
+  }
+
+  try {
+    return normalizePublicFileUrl(url);
+  } catch {
+    return null;
+  }
 }
 
 export default function MediaCenter({
@@ -39,12 +50,18 @@ export default function MediaCenter({
 }: MediaCenterProps) {
   const [activeTab, setActiveTab] = useState("all");
 
-  const visibleItems = items.filter((item) => {
-    if (activeTab === "all") return true;
-    if (activeTab === "images") return item.type === "image";
-    if (activeTab === "documents") return item.type === "document";
-    return true;
-  });
+  const visibleItems = items
+    .map((item) => {
+      const fileUrl = safeFileUrl(item.fileUrl);
+      return fileUrl ? { ...item, fileUrl } : null;
+    })
+    .filter((item): item is MediaItem => item !== null)
+    .filter((item) => {
+      if (activeTab === "all") return true;
+      if (activeTab === "images") return item.type === "image";
+      if (activeTab === "documents") return item.type === "document";
+      return true;
+    });
 
   return (
     <div className="newsroom-media">
@@ -68,13 +85,10 @@ export default function MediaCenter({
       {visibleItems.length > 0 ? (
         <div className="newsroom-media-grid">
           {visibleItems.map((item) => (
-            <article className="newsroom-asset" key={item.key}>
-              {item.type === "image" && item.image ? (
-                <div
-                  className="newsroom-asset__media"
-                  style={assetImageStyle(item.image)}
-                >
-                  {/* TODO: Upload this asset to public/media/newsroom and keep the path in newsroomMediaItems. */}
+            <article className="newsroom-asset" key={item.id}>
+              {item.type === "image" ? (
+                <div className="newsroom-asset__media">
+                  <img src={item.fileUrl} alt={item.title} loading="lazy" />
                 </div>
               ) : (
                 <div className="newsroom-asset__doc" aria-hidden="true">
@@ -87,10 +101,14 @@ export default function MediaCenter({
                 </span>
                 <h3>{item.title}</h3>
                 <p className="newsroom-asset__meta">{item.meta}</p>
-                {/* TODO: Point this at the real asset URL once media is uploaded. */}
-                <button className="newsroom-asset__action" type="button">
+                <a
+                  className="newsroom-asset__action"
+                  href={item.fileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {downloadLabel}
-                </button>
+                </a>
               </div>
             </article>
           ))}

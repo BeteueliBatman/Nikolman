@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useRef } from "react";
+import { useActionState, useEffect, useRef, useTransition } from "react";
 import { uploadAdminImage, type UploadImageState } from "@/lib/admin/upload";
 
 type AdminImageUploaderProps = {
@@ -17,6 +17,7 @@ export default function AdminImageUploader({
     UploadImageState | null,
     FormData
   >(uploadAdminImage, null);
+  const [, startUpload] = useTransition();
 
   useEffect(() => {
     if (state?.url && urlInputRef.current) {
@@ -41,7 +42,9 @@ export default function AdminImageUploader({
             const formData = new FormData();
             formData.append("file", file);
             formData.append("folder", folder);
-            formAction(formData);
+            startUpload(() => {
+              formAction(formData);
+            });
           }}
         />
       </label>

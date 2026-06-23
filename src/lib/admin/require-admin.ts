@@ -1,15 +1,17 @@
 import { redirect } from "next/navigation";
+import { isAdminRole } from "@/lib/admin/roles";
+import { isSupabaseConfigured } from "@/lib/env";
 import { createAuthServerClient } from "@/lib/supabase/server-auth";
 
 export type AdminProfile = {
   role: "admin" | "editor";
 };
 
-function isAdminRole(value: unknown): value is AdminProfile["role"] {
-  return value === "admin" || value === "editor";
-}
-
 export async function requireAdminProfile() {
+  if (!isSupabaseConfigured()) {
+    redirect("/admin/login?error=backend_unavailable");
+  }
+
   const supabase = await createAuthServerClient();
 
   const {

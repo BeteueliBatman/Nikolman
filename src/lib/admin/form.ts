@@ -35,6 +35,18 @@ export function readImageUrl(formData: FormData): string {
   return value;
 }
 
+import { normalizePublicFileUrl } from "@/lib/media/urls";
+
+export function readFileUrl(formData: FormData): string {
+  const value = String(formData.get("file_url") ?? "").trim();
+
+  if (!value) {
+    throw new Error("missing_file");
+  }
+
+  return normalizePublicFileUrl(value);
+}
+
 export function formatActionError(error: unknown): string {
   if (isRedirectError(error)) {
     throw error;
@@ -47,6 +59,14 @@ export function formatActionError(error: unknown): string {
 
     if (error.message === "missing_image") {
       return "Please upload an image or paste an image URL.";
+    }
+
+    if (error.message === "missing_file") {
+      return "Please upload a file or paste a file URL.";
+    }
+
+    if (error.message === "invalid_file_url") {
+      return "Upload the file first. Only cloud or /media/ URLs are allowed.";
     }
 
     if (error.message.startsWith("missing_")) {

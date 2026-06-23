@@ -265,56 +265,6 @@ export const newsroomItems = [
 
 export const newsroomMediaTypeKeys = ["all", "images", "documents"] as const;
 
-export type NewsroomMediaType = "image" | "document";
-
-// Newsroom media library. Drop real imagery into public/media/newsroom and keep paths here.
-export const newsroomMediaItems: {
-  key: string;
-  type: NewsroomMediaType;
-  image?: string;
-  meta: string;
-}[] = [
-  {
-    key: "factoryFloor",
-    type: "image",
-    image: "/media/newsroom/factory-floor.jpg",
-    meta: "JPG · 4000×2667",
-  },
-  {
-    key: "panelDetail",
-    type: "image",
-    image: "/media/newsroom/precast-panel-detail.jpg",
-    meta: "JPG · 3600×2400",
-  },
-  {
-    key: "installationSite",
-    type: "image",
-    image: "/media/newsroom/installation-site.jpg",
-    meta: "JPG · 4096×2731",
-  },
-  {
-    key: "completedFacade",
-    type: "image",
-    image: "/media/newsroom/completed-facade.jpg",
-    meta: "JPG · 3200×2133",
-  },
-  {
-    key: "companyProfile",
-    type: "document",
-    meta: "PDF · 2.4 MB",
-  },
-  {
-    key: "productCatalog",
-    type: "document",
-    meta: "PDF · 5.1 MB",
-  },
-  {
-    key: "pressKit",
-    type: "document",
-    meta: "ZIP · 18 MB",
-  },
-];
-
 // Newsroom press contacts. Phone is live; add a dedicated press email when one exists.
 export const newsroomPressContacts = [
   {

@@ -33,6 +33,14 @@ export async function POST(request: Request) {
   });
 
   if (error) {
+    if (error.message.includes("rate_limited")) {
+      return NextResponse.json({ error: "rate_limited" }, { status: 429 });
+    }
+
+    if (error.message.includes("invalid_email")) {
+      return NextResponse.json({ error: "invalid_email" }, { status: 400 });
+    }
+
     return NextResponse.json({ error: "subscription_failed" }, { status: 500 });
   }
 

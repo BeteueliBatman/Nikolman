@@ -5,10 +5,10 @@ import NewsroomBoard from "@/components/NewsroomBoard";
 import MediaCenter from "@/components/MediaCenter";
 import NewsroomSubscribe from "@/components/NewsroomSubscribe";
 import { getArticles } from "@/lib/data/articles";
+import { getMediaAssets } from "@/lib/data/media-assets";
 import { isAppLocale } from "@/lib/data/locale";
 import {
   newsroomCategoryKeys,
-  newsroomMediaItems,
   newsroomMediaTypeKeys,
   newsroomPressContacts,
 } from "@/lib/siteContent";
@@ -49,10 +49,7 @@ export default async function NewsroomPage({
     displayDate: formatNewsDate(article.date, locale),
   }));
 
-  const mediaItems = newsroomMediaItems.map((item) => ({
-    ...item,
-    title: t(`mediacenter.items.${item.key}.title`),
-  }));
+  const mediaItems = await getMediaAssets(appLocale);
 
   const mediaTabs = newsroomMediaTypeKeys.map((key) => ({
     key,

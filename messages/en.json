@@ -39,7 +39,7 @@
       "motto": "BUILDING THE FUTURE",
       "description": "High-quality prefabricated concrete systems for faster, cleaner, and more predictable construction.",
       "primaryCta": "View projects",
-      "secondaryCta": "Request a quote"
+      "secondaryCta": "Request a proposal"
     },
     "stats": {
       "yearsValue": "12+",
@@ -366,17 +366,8 @@
         "images": "Images",
         "documents": "Documents"
       },
-      "download": "Download",
-      "empty": "No media in this category yet.",
-      "items": {
-        "factoryFloor": { "title": "Precast factory floor" },
-        "panelDetail": { "title": "Wall panel surface detail" },
-        "installationSite": { "title": "On-site element installation" },
-        "completedFacade": { "title": "Completed precast facade" },
-        "companyProfile": { "title": "Nikolman company profile" },
-        "productCatalog": { "title": "Precast product catalogue" },
-        "pressKit": { "title": "Newsroom press kit" }
-      }
+      "download": "View",
+      "empty": "No media in this category yet."
     },
     "pressContacts": {
       "eyebrow": "Press contacts",

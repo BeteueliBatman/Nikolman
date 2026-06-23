@@ -39,7 +39,7 @@
       "motto": "BUILDING THE FUTURE",
       "description": "მაღალი ხარისხის ასაწყობი ბეტონის სისტემები უფრო სწრაფი, სუფთა და პროგნოზირებადი მშენებლობისთვის.",
       "primaryCta": "პროექტები",
-      "secondaryCta": "ფასის მოთხოვნა"
+      "secondaryCta": "მოითხოვეთ შეთავაზება"
     },
     "stats": {
       "yearsValue": "12+",
@@ -366,17 +366,8 @@
         "images": "სურათები",
         "documents": "დოკუმენტები"
       },
-      "download": "ჩამოტვირთვა",
-      "empty": "ამ კატეგორიაში მედია ჯერ არ არის.",
-      "items": {
-        "factoryFloor": { "title": "პრეკასტ ქარხნის საწარმოო სივრცე" },
-        "panelDetail": { "title": "კედლის პანელის ზედაპირის დეტალი" },
-        "installationSite": { "title": "ელემენტების მონტაჟი ობიექტზე" },
-        "completedFacade": { "title": "დასრულებული პრეკასტ ფასადი" },
-        "companyProfile": { "title": "Nikolman-ის კომპანიის პროფილი" },
-        "productCatalog": { "title": "პრეკასტ პროდუქტების კატალოგი" },
-        "pressKit": { "title": "სიახლეების პრეს პაკეტი" }
-      }
+      "download": "ნახვა",
+      "empty": "ამ კატეგორიაში მედია ჯერ არ არის."
     },
     "pressContacts": {
       "eyebrow": "პრეს კონტაქტი",

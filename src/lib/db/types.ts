@@ -73,3 +73,17 @@ export type NewsletterSubscriberRow = {
   locale: string;
   created_at: string;
 };
+
+export type MediaAssetType = "image" | "document";
+
+export type MediaAssetRow = {
+  id: string;
+  media_type: MediaAssetType;
+  file_url: string;
+  file_meta: string;
+  sort_order: number;
+  status: PublishStatus;
+  title: LocalizedText;
+  created_at: string;
+  updated_at: string;
+};
