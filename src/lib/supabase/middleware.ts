@@ -1,7 +1,11 @@
 import { createServerClient, type SetAllCookies } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import { isAdminRole } from "@/lib/admin/roles";
-import { getSupabasePublicEnv, isSupabaseConfigured } from "@/lib/env";
+import {
+  getSupabasePublicEnv,
+  isAllowedAdminEmail,
+  isSupabaseConfigured,
+} from "@/lib/env";
 
 export async function updateAdminSession(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -46,6 +50,14 @@ export async function updateAdminSession(request: NextRequest) {
     const redirectUrl = request.nextUrl.clone();
     redirectUrl.pathname = "/admin/login";
     redirectUrl.searchParams.set("next", pathname);
+    return NextResponse.redirect(redirectUrl);
+  }
+
+  if (user && !isAllowedAdminEmail(user.email)) {
+    await supabase.auth.signOut();
+    const redirectUrl = request.nextUrl.clone();
+    redirectUrl.pathname = "/admin/login";
+    redirectUrl.searchParams.set("error", "unauthorized");
     return NextResponse.redirect(redirectUrl);
   }
 

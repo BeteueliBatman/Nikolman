@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { isAdminRole } from "@/lib/admin/roles";
-import { isSupabaseConfigured } from "@/lib/env";
+import { isAllowedAdminEmail, isSupabaseConfigured } from "@/lib/env";
 import { createAuthServerClient } from "@/lib/supabase/server-auth";
 
 export type AdminSignInState = {
@@ -35,6 +35,11 @@ export async function signInAdmin(
 
   if (signInError) {
     return { error: "Invalid email or password." };
+  }
+
+  if (!isAllowedAdminEmail(email)) {
+    await supabase.auth.signOut();
+    return { error: "This account does not have admin access." };
   }
 
   const { data: role, error: roleError } = await supabase.rpc(

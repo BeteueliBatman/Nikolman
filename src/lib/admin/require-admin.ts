@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { isAdminRole } from "@/lib/admin/roles";
-import { isSupabaseConfigured } from "@/lib/env";
+import { isAllowedAdminEmail, isSupabaseConfigured } from "@/lib/env";
 import { createAuthServerClient } from "@/lib/supabase/server-auth";
 
 export type AdminProfile = {
@@ -20,6 +20,11 @@ export async function requireAdminProfile() {
 
   if (!user) {
     redirect("/admin/login");
+  }
+
+  if (!isAllowedAdminEmail(user.email)) {
+    await supabase.auth.signOut();
+    redirect("/admin/login?error=unauthorized");
   }
 
   const { data: role, error } = await supabase.rpc("get_website_admin_role");

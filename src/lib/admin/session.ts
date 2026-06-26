@@ -1,6 +1,6 @@
 import { isAdminRole } from "@/lib/admin/roles";
 import type { AdminProfile } from "@/lib/admin/require-admin";
-import { isSupabaseConfigured } from "@/lib/env";
+import { isAllowedAdminEmail, isSupabaseConfigured } from "@/lib/env";
 import { createAuthServerClient } from "@/lib/supabase/server-auth";
 
 export async function getAdminSession() {
@@ -15,6 +15,10 @@ export async function getAdminSession() {
   } = await supabase.auth.getUser();
 
   if (!user) {
+    return null;
+  }
+
+  if (!isAllowedAdminEmail(user.email)) {
     return null;
   }
 

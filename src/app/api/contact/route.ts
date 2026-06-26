@@ -1,30 +1,35 @@
-import { NextResponse } from "next/server";
+import { jsonNoStore, validatePublicApiRequest } from "@/lib/api/request-security";
 import { getPublicServerClientIfConfigured } from "@/lib/supabase/server";
 import { validateContactPayload } from "@/lib/validation/forms";
 
 export async function POST(request: Request) {
+  const requestGuard = validatePublicApiRequest(request);
+  if (requestGuard) {
+    return requestGuard;
+  }
+
   let body: unknown;
 
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json({ error: "invalid_payload" }, { status: 400 });
+    return jsonNoStore({ error: "invalid_payload" }, { status: 400 });
   }
 
   const validation = validateContactPayload(body);
 
   if (!validation.ok) {
     if (validation.error === "spam_detected") {
-      return NextResponse.json({ ok: true });
+      return jsonNoStore({ ok: true });
     }
 
-    return NextResponse.json({ error: validation.error }, { status: 400 });
+    return jsonNoStore({ error: validation.error }, { status: 400 });
   }
 
   const supabase = getPublicServerClientIfConfigured();
 
   if (!supabase) {
-    return NextResponse.json({ error: "backend_unavailable" }, { status: 503 });
+    return jsonNoStore({ error: "backend_unavailable" }, { status: 503 });
   }
 
   const { error } = await supabase.rpc("submit_contact_message", {
@@ -38,11 +43,15 @@ export async function POST(request: Request) {
 
   if (error) {
     if (error.message.includes("rate_limited")) {
-      return NextResponse.json({ error: "rate_limited" }, { status: 429 });
+      return jsonNoStore({ error: "rate_limited" }, { status: 429 });
     }
 
-    return NextResponse.json({ error: "submission_failed" }, { status: 500 });
+    if (error.message.includes("invalid_")) {
+      return jsonNoStore({ error: "invalid_payload" }, { status: 400 });
+    }
+
+    return jsonNoStore({ error: "submission_failed" }, { status: 500 });
   }
 
-  return NextResponse.json({ ok: true });
+  return jsonNoStore({ ok: true });
 }

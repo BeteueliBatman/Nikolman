@@ -1,5 +1,6 @@
 import { isRedirectError } from "next/dist/client/components/redirect-error";
 import type { LocalizedText } from "@/lib/db/types";
+import { normalizePublicFileUrl } from "@/lib/media/urls";
 
 export function readLocalizedField(
   formData: FormData,
@@ -32,10 +33,8 @@ export function readImageUrl(formData: FormData): string {
     throw new Error("missing_image");
   }
 
-  return value;
+  return normalizePublicFileUrl(value);
 }
-
-import { normalizePublicFileUrl } from "@/lib/media/urls";
 
 export function readFileUrl(formData: FormData): string {
   const value = String(formData.get("file_url") ?? "").trim();
@@ -66,7 +65,7 @@ export function formatActionError(error: unknown): string {
     }
 
     if (error.message === "invalid_file_url") {
-      return "Upload the file first. Only cloud or /media/ URLs are allowed.";
+      return "Only Supabase storage or /media/ URLs are allowed.";
     }
 
     if (error.message.startsWith("missing_")) {

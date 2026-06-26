@@ -1,5 +1,11 @@
 export type AppLocale = "en" | "ka";
 
+let adminEmailAllowlistCache: Set<string> | null = null;
+
+function normalizeEmail(value: string): string {
+  return value.trim().toLowerCase();
+}
+
 export function isSupabaseConfigured(): boolean {
   return Boolean(
     process.env.NEXT_PUBLIC_SUPABASE_URL &&
@@ -32,4 +38,33 @@ export function getSupabaseServiceRoleKey(): string {
   }
 
   return serviceRoleKey;
+}
+
+export function getAdminEmailAllowlist(): Set<string> {
+  if (adminEmailAllowlistCache) {
+    return adminEmailAllowlistCache;
+  }
+
+  const raw = process.env.ADMIN_EMAILS ?? "";
+  const values = raw
+    .split(",")
+    .map((value) => normalizeEmail(value))
+    .filter(Boolean);
+
+  adminEmailAllowlistCache = new Set(values);
+  return adminEmailAllowlistCache;
+}
+
+export function isAllowedAdminEmail(email: string | null | undefined): boolean {
+  const allowlist = getAdminEmailAllowlist();
+
+  if (allowlist.size === 0) {
+    return true;
+  }
+
+  if (!email) {
+    return false;
+  }
+
+  return allowlist.has(normalizeEmail(email));
 }
