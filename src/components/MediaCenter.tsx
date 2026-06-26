@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import {
   isPublicFileUrl,
@@ -88,7 +89,12 @@ export default function MediaCenter({
             <article className="newsroom-asset" key={item.id}>
               {item.type === "image" ? (
                 <div className="newsroom-asset__media">
-                  <img src={item.fileUrl} alt={item.title} loading="lazy" />
+                  <Image
+                    src={item.fileUrl}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 360px"
+                  />
                 </div>
               ) : (
                 <div className="newsroom-asset__doc" aria-hidden="true">

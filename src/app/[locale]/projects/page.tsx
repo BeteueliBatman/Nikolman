@@ -1,13 +1,23 @@
-import type { CSSProperties } from "react";
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import PageHero from "@/components/PageHero";
 import ProjectsBoard from "@/components/ProjectsBoard";
 import { getProjects } from "@/lib/data/projects";
 import { isAppLocale } from "@/lib/data/locale";
+import { createPageMetadata } from "@/lib/metadata";
+import { navPageHeroImages } from "@/lib/pageHero";
 import { projectCategoryKeys } from "@/lib/siteContent";
 
-function pageHeroStyle(image: string): CSSProperties {
-  return { "--page-image": `url(${image})` } as CSSProperties;
+export const revalidate = 3600;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return createPageMetadata(locale, "projects", "/projects");
 }
 
 export default async function ProjectsPage({
@@ -34,17 +44,11 @@ export default async function ProjectsPage({
 
   return (
     <>
-      <section
-        className="page-hero page-hero--projects"
-        style={pageHeroStyle("/media/projects/completed-projects-hero.jpg")}
-      >
-        {/* TODO: Replace /media/projects/completed-projects-hero.jpg with a final completed-projects hero image. */}
-        <div className="page-hero__inner">
-          <span className="eyebrow">{t("hero.eyebrow")}</span>
-          <h1>{t("hero.title")}</h1>
-          <p className="section-lead">{t("hero.description")}</p>
-        </div>
-      </section>
+      <PageHero image={navPageHeroImages.projects} accent="left">
+        <span className="eyebrow">{t("hero.eyebrow")}</span>
+        <h1>{t("hero.title")}</h1>
+        <p className="section-lead">{t("hero.description")}</p>
+      </PageHero>
 
       <section className="section">
         <div className="section-inner">

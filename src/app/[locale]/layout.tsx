@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { getSiteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -20,6 +21,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "meta" });
 
   return {
+    metadataBase: new URL(getSiteUrl()),
     title: t("title"),
     description: t("description"),
     icons: {

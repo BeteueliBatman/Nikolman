@@ -1,20 +1,30 @@
-import type { CSSProperties } from "react";
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import NewsroomBoard from "@/components/NewsroomBoard";
 import MediaCenter from "@/components/MediaCenter";
 import NewsroomSubscribe from "@/components/NewsroomSubscribe";
+import PageHero from "@/components/PageHero";
 import { getArticles } from "@/lib/data/articles";
 import { getMediaAssets } from "@/lib/data/media-assets";
 import { isAppLocale } from "@/lib/data/locale";
+import { createPageMetadata } from "@/lib/metadata";
+import { navPageHeroImages } from "@/lib/pageHero";
 import {
   newsroomCategoryKeys,
   newsroomMediaTypeKeys,
   newsroomPressContacts,
 } from "@/lib/siteContent";
 
-function pageHeroStyle(image: string): CSSProperties {
-  return { "--page-image": `url(${image})` } as CSSProperties;
+export const revalidate = 3600;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return createPageMetadata(locale, "newsroom", "/newsroom");
 }
 
 function formatNewsDate(date: string, locale: string) {
@@ -69,17 +79,11 @@ export default async function NewsroomPage({
 
   return (
     <>
-      <section
-        className="page-hero page-hero--newsroom"
-        style={pageHeroStyle("/media/newsroom/newsroom-hero.jpg")}
-      >
-        {/* TODO: Replace /media/newsroom/newsroom-hero.jpg with a final Nikolman newsroom image. */}
-        <div className="page-hero__inner">
-          <span className="eyebrow">{t("hero.eyebrow")}</span>
-          <h1>{t("hero.title")}</h1>
-          <p className="section-lead">{t("hero.description")}</p>
-        </div>
-      </section>
+      <PageHero image={navPageHeroImages.newsroom} accent="right">
+        <span className="eyebrow">{t("hero.eyebrow")}</span>
+        <h1>{t("hero.title")}</h1>
+        <p className="section-lead">{t("hero.description")}</p>
+      </PageHero>
 
       <nav className="newsroom-section-nav" aria-label={t("nav.label")}>
         <div className="newsroom-section-nav__inner">

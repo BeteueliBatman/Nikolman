@@ -199,7 +199,6 @@ export default function NewsroomBoard({
               className="newsroom-featured__media"
               style={articleImageStyle(featured.image)}
             >
-              {/* TODO: Upload this newsroom image to public/media/newsroom and keep the path in newsroomItems. */}
             </div>
             <div className="newsroom-featured__content">
               <span className="newsroom-featured__pill">{labels.featured}</span>
@@ -222,7 +221,6 @@ export default function NewsroomBoard({
                   className="newsroom-grid-card__media"
                   style={articleImageStyle(article.image)}
                 >
-                  {/* TODO: Upload this newsroom image to public/media/newsroom and keep the path in newsroomItems. */}
                 </div>
                 <div className="newsroom-grid-card__body">
                   {renderMeta(article)}

@@ -34,6 +34,10 @@
     "tagline": "Prefab Concrete Excellence"
   },
   "home": {
+    "meta": {
+      "title": "BUILDING THE FUTURE",
+      "description": "High-quality prefabricated concrete systems for faster, cleaner, and more predictable construction."
+    },
     "hero": {
       "eyebrow": "Nikolman Companies",
       "motto": "BUILDING THE FUTURE",
@@ -135,6 +139,10 @@
     }
   },
   "prefab": {
+    "meta": {
+      "title": "Prefab structures",
+      "description": "Explore Nikolman's precast standard products, wall panels, custom structures, modular structures, and building applications."
+    },
     "hero": {
       "eyebrow": "Prefab structures",
       "title": "Concrete systems for repeatable quality and rapid assembly.",
@@ -211,6 +219,10 @@
     }
   },
   "projects": {
+    "meta": {
+      "title": "Completed projects",
+      "description": "A structured archive of Nikolman's built work across industrial, residential, commercial, and institutional construction."
+    },
     "hero": {
       "eyebrow": "Completed projects",
       "title": "A structured archive of Nikolman's built work.",
@@ -277,6 +289,10 @@
     }
   },
   "newsroom": {
+    "meta": {
+      "title": "Newsroom",
+      "description": "Project news, production milestones, company updates, and technical stories from Nikolman's concrete construction environment."
+    },
     "hero": {
       "eyebrow": "Newsroom",
       "title": "Welcome to the Nikolman newsroom.",
@@ -405,6 +421,10 @@
     }
   },
   "whoWeAre": {
+    "meta": {
+      "title": "Who we are",
+      "description": "Nikolman develops prefabricated concrete solutions that help projects become more predictable, durable, and efficient."
+    },
     "hero": {
       "eyebrow": "Who we are",
       "title": "A construction partner focused on precision concrete.",
@@ -453,6 +473,10 @@
     }
   },
   "contact": {
+    "meta": {
+      "title": "Contact",
+      "description": "Send your project request, technical question, or meeting proposal to the Nikolman team."
+    },
     "hero": {
       "eyebrow": "Contact",
       "title": "Start your prefab concrete project with Nikolman.",

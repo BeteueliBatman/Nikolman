@@ -21,6 +21,12 @@
     rgba(227, 6, 19, 0.28) 76%,
     rgba(169, 0, 11, 0.38) 100%
   );
+  --hero-accent-gradient-left: linear-gradient(
+    270deg,
+    transparent 48%,
+    rgba(227, 6, 19, 0.28) 76%,
+    rgba(169, 0, 11, 0.38) 100%
+  );
   --hero-shade-gradient:
     linear-gradient(110deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.08)),
     linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.2)),
@@ -1274,8 +1280,7 @@ html[lang="ka"] .hero__title {
   color: #ffffff;
 }
 
-.page-hero::before {
-  content: "";
+.page-hero__media {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -1285,15 +1290,24 @@ html[lang="ka"] .hero__title {
   opacity: var(--hero-media-opacity);
 }
 
-.page-hero::after {
-  content: "";
+.page-hero__shade {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background:
-    var(--hero-accent-gradient),
-    var(--hero-shade-gradient);
+  background: var(--hero-shade-gradient);
+}
+
+.page-hero__accent {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: var(--hero-accent-gradient);
+}
+
+.page-hero--accent-left .page-hero__accent {
+  background: var(--hero-accent-gradient-left);
 }
 
 .page-hero__inner {
@@ -3469,6 +3483,7 @@ html[lang="ka"] .hero__title {
 }
 
 .newsroom-asset__media {
+  position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   background: linear-gradient(135deg, #d7d7d7, #f7f7f7);

@@ -1,11 +1,22 @@
 import type { CSSProperties } from "react";
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ProductGallery } from "@/components/ProductGallery";
 import { Link } from "@/i18n/navigation";
+import { createPageMetadata } from "@/lib/metadata";
 import { productCatalog } from "@/lib/siteContent";
 
 function panelImageStyle(image: string): CSSProperties {
   return { "--panel-image": `url(${image})` } as CSSProperties;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return createPageMetadata(locale, "home");
 }
 
 export default async function HomePage({
@@ -62,6 +73,8 @@ export default async function HomePage({
           loop
           muted
           playsInline
+          preload="metadata"
+          poster="/media/products/precast-wall-panels.jpg"
           aria-hidden="true"
         >
           <source src="/media/hero/nikolman-hero.mp4" type="video/mp4" />

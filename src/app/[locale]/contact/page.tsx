@@ -1,13 +1,11 @@
 "use client";
 
-import type { ChangeEvent, CSSProperties, FormEvent } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import PageHero from "@/components/PageHero";
+import { navPageHeroImages } from "@/lib/pageHero";
 import { contactDetails } from "@/lib/siteContent";
-
-function pageHeroStyle(image: string): CSSProperties {
-  return { "--page-image": `url(${image})` } as CSSProperties;
-}
 
 export default function ContactPage() {
   const t = useTranslations("contact");
@@ -73,17 +71,11 @@ export default function ContactPage() {
 
   return (
     <>
-      <section
-        className="page-hero"
-        style={pageHeroStyle("/media/projects/nikolman-contact-office.jpg")}
-      >
-        {/* TODO: Replace /media/projects/nikolman-contact-office.jpg with an uploaded Nikolman contact or office image. */}
-        <div className="page-hero__inner">
-          <span className="eyebrow">{t("hero.eyebrow")}</span>
-          <h1>{t("hero.title")}</h1>
-          <p className="section-lead">{t("hero.description")}</p>
-        </div>
-      </section>
+      <PageHero image={navPageHeroImages.contact} accent="right">
+        <span className="eyebrow">{t("hero.eyebrow")}</span>
+        <h1>{t("hero.title")}</h1>
+        <p className="section-lead">{t("hero.description")}</p>
+      </PageHero>
 
       <section className="section">
         <div className="section-inner contact-grid">

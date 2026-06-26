@@ -112,7 +112,6 @@ export default function ProjectsBoard({
                 className="project-feature__media"
                 style={projectImageStyle(featuredProject.image)}
               >
-                {/* TODO: Upload this project image to public/media/projects and keep the path in projectItems. */}
               </div>
               <div className="project-feature__content">
                 <span className="project-pill">{labels.featured}</span>
@@ -153,7 +152,6 @@ export default function ProjectsBoard({
                       className="project-card__media"
                       style={projectImageStyle(project.image)}
                     >
-                      {/* TODO: Upload this project image to public/media/projects and keep the path in projectItems. */}
                     </div>
                     <div className="project-card__body">
                       <div className="project-card__topline">

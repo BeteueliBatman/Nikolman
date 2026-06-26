@@ -1,10 +1,17 @@
-import type { CSSProperties } from "react";
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import PageHero from "@/components/PageHero";
+import { createPageMetadata } from "@/lib/metadata";
 import { buildingTypeKeys, prefabCategoryKeys } from "@/lib/siteContent";
 
-function pageHeroStyle(image: string): CSSProperties {
-  return { "--page-image": `url(${image})` } as CSSProperties;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return createPageMetadata(locale, "prefab", "/prefab-structures");
 }
 
 export default async function PrefabStructuresPage({
@@ -37,17 +44,14 @@ export default async function PrefabStructuresPage({
 
   return (
     <>
-      <section
-        className="page-hero"
-        style={pageHeroStyle("/media/projects/precast-structure-site.jpg")}
+      <PageHero
+        image="/media/projects/precast-structure-site.jpg"
+        accent="right"
       >
-        {/* TODO: Replace /media/projects/precast-structure-site.jpg with an uploaded Nikolman project image. */}
-        <div className="page-hero__inner">
-          <span className="eyebrow">{t("hero.eyebrow")}</span>
-          <h1>{t("hero.title")}</h1>
-          <p className="section-lead">{t("hero.description")}</p>
-        </div>
-      </section>
+        <span className="eyebrow">{t("hero.eyebrow")}</span>
+        <h1>{t("hero.title")}</h1>
+        <p className="section-lead">{t("hero.description")}</p>
+      </PageHero>
 
       <section className="section">
         <div className="section-inner">
