@@ -7,6 +7,7 @@ export type ContactPayload = {
   subject: string;
   message: string;
   locale: string;
+  privacyAccepted: boolean;
   _hp?: string;
 };
 
@@ -32,6 +33,7 @@ export function validateContactPayload(
   const subject = trim(record.subject);
   const message = trim(record.message);
   const locale = trim(record.locale) || "en";
+  const privacyAccepted = record.privacyAccepted === true;
   const _hp = trim(record._hp);
 
   if (_hp) {
@@ -62,15 +64,31 @@ export function validateContactPayload(
     return { ok: false, error: "invalid_locale" };
   }
 
+  if (!privacyAccepted) {
+    return { ok: false, error: "privacy_required" };
+  }
+
   return {
     ok: true,
-    value: { name, email, phone, subject, message, locale },
+    value: {
+      name,
+      email,
+      phone,
+      subject,
+      message,
+      locale,
+      privacyAccepted,
+    },
   };
 }
 
 export function validateNewsletterPayload(
   body: unknown
-): ValidationResult<{ email: string; locale: string }> {
+): ValidationResult<{
+  email: string;
+  locale: string;
+  privacyAccepted: boolean;
+}> {
   if (!body || typeof body !== "object") {
     return { ok: false, error: "invalid_payload" };
   }
@@ -78,6 +96,7 @@ export function validateNewsletterPayload(
   const record = body as Record<string, unknown>;
   const email = trim(record.email).toLowerCase();
   const locale = trim(record.locale) || "en";
+  const privacyAccepted = record.privacyAccepted === true;
   const _hp = trim(record._hp);
 
   if (_hp) {
@@ -92,5 +111,9 @@ export function validateNewsletterPayload(
     return { ok: false, error: "invalid_locale" };
   }
 
-  return { ok: true, value: { email, locale } };
+  if (!privacyAccepted) {
+    return { ok: false, error: "privacy_required" };
+  }
+
+  return { ok: true, value: { email, locale, privacyAccepted } };
 }

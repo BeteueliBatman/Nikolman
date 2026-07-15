@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
           `${siteUrl}/${altLocale}${route}`,
         ])
       );
+      languages["x-default"] = `${siteUrl}/ka${route}`;
 
       return {
         url: `${siteUrl}/${locale}${route}`,

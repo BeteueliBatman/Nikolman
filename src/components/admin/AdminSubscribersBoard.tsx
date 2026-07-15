@@ -171,6 +171,8 @@ export default function AdminSubscribersBoard({
               <th>Date</th>
               <th>Email</th>
               <th>Locale</th>
+              <th>Consent</th>
+              <th>Policy</th>
               <th aria-label="Actions" />
             </tr>
           </thead>
@@ -192,6 +194,12 @@ export default function AdminSubscribersBoard({
                   </td>
                   <td>{subscriber.locale}</td>
                   <td>
+                    {subscriber.consented_at
+                      ? formatDate(subscriber.consented_at)
+                      : "Legacy record"}
+                  </td>
+                  <td>{subscriber.privacy_policy_version ?? "—"}</td>
+                  <td>
                     <div className="admin-table__actions">
                       <button
                         type="button"
@@ -210,7 +218,7 @@ export default function AdminSubscribersBoard({
               ))
             ) : (
               <tr>
-                <td colSpan={5} className="admin-table__empty">
+                <td colSpan={7} className="admin-table__empty">
                   {subscribers.length
                     ? "No subscribers match this filter."
                     : "No newsletter subscribers yet."}

@@ -4,6 +4,7 @@ import type { ChangeEvent, FormEvent } from "react";
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import PageHero from "@/components/PageHero";
+import { Link } from "@/i18n/navigation";
 import { navPageHeroImages } from "@/lib/pageHero";
 import { contactDetails } from "@/lib/siteContent";
 
@@ -47,6 +48,7 @@ export default function ContactPage() {
         body: JSON.stringify({
           ...form,
           locale,
+          privacyAccepted: formData.get("privacyAccepted") === "on",
           _hp: formData.get("_hp"),
         }),
       });
@@ -210,6 +212,20 @@ export default function ContactPage() {
                   autoComplete="off"
                   aria-hidden="true"
                 />
+
+                <label className="form-consent">
+                  <input
+                    name="privacyAccepted"
+                    type="checkbox"
+                    required
+                    disabled={submitting}
+                  />
+                  <span>
+                    {t("form.privacyPrefix")}{" "}
+                    <Link href="/privacy">{t("form.privacyLink")}</Link>
+                    {t("form.privacySuffix")}
+                  </span>
+                </label>
 
                 {error ? (
                   <p className="contact-form__error" role="alert">

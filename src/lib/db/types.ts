@@ -72,6 +72,9 @@ export type NewsletterSubscriberRow = {
   email: string;
   locale: string;
   created_at: string;
+  consented_at: string | null;
+  consent_source: string | null;
+  privacy_policy_version: string | null;
 };
 
 export type MediaAssetType = "image" | "document";

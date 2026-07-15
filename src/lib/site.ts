@@ -19,4 +19,5 @@ export const localizedRoutes = [
   "/newsroom",
   "/who-we-are",
   "/contact",
+  "/privacy",
 ] as const;

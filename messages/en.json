@@ -9,6 +9,13 @@
     "statsAriaLabel": "Nikolman highlights",
     "logoAriaLabel": "Nikolman logo"
   },
+  "notFound": {
+    "eyebrow": "Page not found",
+    "title": "This page is not available.",
+    "description": "The address may have changed or the page may no longer exist. Return to the homepage or contact the Nikolman team.",
+    "home": "Go to homepage",
+    "contact": "Contact us"
+  },
   "gallery": {
     "previousImage": "Previous image",
     "nextImage": "Next image",
@@ -31,7 +38,9 @@
     "navigation": "Navigation",
     "contact": "Contact",
     "copyright": "All rights reserved.",
-    "tagline": "Prefab Concrete Excellence"
+    "tagline": "Prefab Concrete Excellence",
+    "privacy": "Privacy Policy",
+    "legalNavigation": "Legal information"
   },
   "home": {
     "meta": {
@@ -410,8 +419,12 @@
       "button": "Subscribe",
       "success": "Thanks — you are on the Nikolman newsroom list.",
       "error": "We could not save your subscription right now. Please try again later.",
+      "rateLimited": "Too many subscription attempts were made recently. Please wait a while and try again.",
       "submitting": "Subscribing...",
-      "note": "We only use your email for Nikolman newsroom updates."
+      "note": "We only use your email for Nikolman newsroom updates.",
+      "consentPrefix": "I agree to receive Nikolman updates and have read the",
+      "consentLink": "Privacy Policy",
+      "consentSuffix": "."
     },
     "contact": {
       "eyebrow": "Media and updates",
@@ -507,7 +520,10 @@
       "message": "Message",
       "messagePlaceholder": "Tell us about the site, schedule, drawings, or product requirements.",
       "sendButton": "Send message",
-      "sending": "Sending..."
+      "sending": "Sending...",
+      "privacyPrefix": "I have read the",
+      "privacyLink": "Privacy Policy",
+      "privacySuffix": " and understand how my information will be used to respond to this request."
     },
     "errors": {
       "generic": "We could not send your message right now. Please try again or call us directly.",
@@ -516,6 +532,92 @@
     "success": {
       "title": "Thank you, {name}.",
       "message": "Your message has been received. The Nikolman team will get back to you as soon as possible."
+    }
+  },
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy",
+      "description": "Learn how Nikolman collects, uses, stores, and protects personal information submitted through this website."
+    },
+    "hero": {
+      "eyebrow": "Privacy and data",
+      "title": "Privacy Policy",
+      "description": "How Nikolman handles personal information submitted through this website."
+    },
+    "summary": {
+      "eyebrow": "At a glance",
+      "title": "Your information, handled responsibly.",
+      "description": "We collect only the information needed to answer enquiries, operate the website, and send updates you expressly request.",
+      "controllerLabel": "Data controller",
+      "updatedLabel": "Last updated",
+      "updatedValue": "15 July 2026",
+      "contactButton": "Contact us"
+    },
+    "intro": {
+      "p1": "This policy explains how Nikolman collects and processes personal information when you visit this website, send a project enquiry, subscribe to newsroom updates, or use the administration area as an authorised user.",
+      "p2": "By using the website, you acknowledge the practices described below. Where processing relies on consent, you may withdraw that consent at any time."
+    },
+    "sections": {
+      "collection": {
+        "title": "1. Information we collect",
+        "body": "The information collected depends on how you use the website.",
+        "items": [
+          "Contact enquiries: name, email address, optional phone number, enquiry subject, message, language, and submission time.",
+          "Newsletter subscriptions: email address, preferred language, consent date, consent source, and privacy-policy version.",
+          "Authorised administration: account identity, authentication cookies, role, and security-related session information.",
+          "Technical information automatically processed by hosting and security providers, such as IP address, browser details, request time, and diagnostic logs."
+        ]
+      },
+      "purposes": {
+        "title": "2. How we use information",
+        "body": "We use personal information only for defined business and website purposes.",
+        "items": [
+          "To review and respond to project, product, partnership, or media enquiries.",
+          "To send company and newsroom updates requested by subscribers.",
+          "To operate, secure, troubleshoot, and improve the website and administration area.",
+          "To prevent spam, fraud, misuse, and unauthorised access.",
+          "To meet applicable legal, accounting, or regulatory obligations."
+        ]
+      },
+      "legalBases": {
+        "title": "3. Grounds for processing",
+        "body": "Contact enquiries are processed to take steps at your request, pursue Nikolman's legitimate business interests in responding to enquiries, and comply with legal obligations where applicable. Newsletter messages are based on your explicit consent, which you can withdraw at any time."
+      },
+      "sharing": {
+        "title": "4. Service providers and transfers",
+        "body": "Nikolman does not sell personal information. Data may be processed by trusted technology providers that help operate the website, including Vercel for hosting and delivery and Supabase for database, storage, and authentication services. These providers may process data in other countries under their contractual and technical safeguards. Information may also be disclosed when required by law or necessary to protect legal rights."
+      },
+      "retention": {
+        "title": "5. How long we keep information",
+        "body": "We keep personal information only for as long as reasonably necessary for its purpose.",
+        "items": [
+          "Contact enquiries are normally retained for up to 24 months after the last relevant communication, unless a longer period is needed for an active project, contract, dispute, or legal requirement.",
+          "Newsletter records are retained until you withdraw consent or request deletion.",
+          "Authorised administrator records are retained while access is active and as needed for security and accountability.",
+          "Provider logs and backups may remain temporarily according to the providers' security and backup cycles."
+        ]
+      },
+      "rights": {
+        "title": "6. Your choices and rights",
+        "body": "Subject to applicable law, you may ask whether we hold your personal information and request access, correction, deletion, restriction, or a copy of it. You may object to certain processing and may withdraw newsletter consent at any time. We may need to verify your identity before completing a request."
+      },
+      "security": {
+        "title": "7. Security",
+        "body": "We use reasonable technical and organisational safeguards, including encrypted HTTPS connections, access controls, role-based administration, database row-level security, input validation, request limits, and restricted storage access. No internet service can guarantee absolute security, so authorised users should use unique, strong passwords and keep credentials confidential."
+      },
+      "cookies": {
+        "title": "8. Cookies and analytics",
+        "body": "The public website currently does not use advertising or behavioural analytics cookies. Essential authentication cookies are used for authorised administrators to maintain secure sessions. If optional analytics or marketing tools are added later, this policy and any required consent controls will be updated before those tools are enabled."
+      },
+      "changes": {
+        "title": "9. Policy changes",
+        "body": "We may update this policy when the website, our services, or legal requirements change. The latest version and its update date will always be published on this page."
+      }
+    },
+    "contact": {
+      "title": "10. Privacy requests",
+      "body": "To exercise your rights, withdraw newsletter consent, or ask a privacy question, contact Nikolman through the website contact page or by phone. Please identify the email address connected with your request so we can locate the correct record.",
+      "link": "Open the contact page"
     }
   }
 }

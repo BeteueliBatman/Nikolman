@@ -185,7 +185,11 @@ export default async function NewsroomPage({
             success: t("subscribe.success"),
             note: t("subscribe.note"),
             error: t("subscribe.error"),
+            rateLimited: t("subscribe.rateLimited"),
             submitting: t("subscribe.submitting"),
+            consentPrefix: t("subscribe.consentPrefix"),
+            consentLink: t("subscribe.consentLink"),
+            consentSuffix: t("subscribe.consentSuffix"),
           }}
         />
       </section>

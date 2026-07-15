@@ -2,6 +2,7 @@
 
 import type { FormEvent } from "react";
 import { useState } from "react";
+import { Link } from "@/i18n/navigation";
 
 type NewsroomSubscribeProps = {
   locale: string;
@@ -14,7 +15,11 @@ type NewsroomSubscribeProps = {
     success: string;
     note: string;
     error: string;
+    rateLimited: string;
     submitting: string;
+    consentPrefix: string;
+    consentLink: string;
+    consentSuffix: string;
   };
 };
 
@@ -41,9 +46,15 @@ export default function NewsroomSubscribe({
         body: JSON.stringify({
           email,
           locale,
+          privacyAccepted: formData.get("privacyAccepted") === "on",
           _hp: formData.get("_hp"),
         }),
       });
+
+      if (response.status === 429) {
+        setError(labels.rateLimited);
+        return;
+      }
 
       if (!response.ok) {
         setError(labels.error);
@@ -99,6 +110,19 @@ export default function NewsroomSubscribe({
             >
               {submitting ? labels.submitting : labels.button}
             </button>
+            <label className="newsroom-subscribe__consent">
+              <input
+                name="privacyAccepted"
+                type="checkbox"
+                required
+                disabled={submitting}
+              />
+              <span>
+                {labels.consentPrefix}{" "}
+                <Link href="/privacy">{labels.consentLink}</Link>
+                {labels.consentSuffix}
+              </span>
+            </label>
             {error ? (
               <p className="newsroom-subscribe__error" role="alert">
                 {error}

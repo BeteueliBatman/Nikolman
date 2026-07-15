@@ -57,7 +57,11 @@ export default async function Footer() {
         <p>
           &copy; {year} Nikolman. {t("copyright")}
         </p>
-        <p>{t("tagline")}</p>
+        <nav className="site-footer__legal" aria-label={t("legalNavigation")}>
+          <Link href="/privacy">{t("privacy")}</Link>
+          <span aria-hidden="true">•</span>
+          <p>{t("tagline")}</p>
+        </nav>
       </div>
     </footer>
   );

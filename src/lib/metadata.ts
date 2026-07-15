@@ -26,6 +26,7 @@ export async function createPageMetadata(
       `${siteUrl}/${altLocale}${route}`,
     ])
   );
+  languages["x-default"] = `${siteUrl}/ka${route}`;
 
   return {
     title,
@@ -40,6 +41,7 @@ export async function createPageMetadata(
       url: `${siteUrl}/${locale}${route}`,
       siteName: SITE_NAME,
       locale: locale === "ka" ? "ka_GE" : "en_US",
+      alternateLocale: locale === "ka" ? ["en_US"] : ["ka_GE"],
       type: "website",
     },
     twitter: {
